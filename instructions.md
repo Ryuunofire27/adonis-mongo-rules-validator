@@ -35,9 +35,11 @@ model: Should be plural and in lowercase. Should be next to the rule.
 
 key: The key that must be unique. Should be next to the model.
 
-id or _id: the '_id' key to indicate that the value of the _id does not take it as reference. Should be after for the value.
+##### Optional
 
-value: The value for '_id' key. Should be next to the '_id' key.
+  - id or _id: the '_id' key to indicate that the value of the _id does not take it as reference. Should be after for the value.
+
+  - value: The value for '_id' key. Should be next to the '_id' key.
 
 ### existMongo
 
@@ -58,9 +60,10 @@ const rules = {
 
 model: Should be plural and in lowercase. Should be next to the rule.
 
-key: The key that must be unique. Should be next to the model.
+key: The key that must exist. Should be next to the model.
 
-value: The value for '_id' key. Should be next to the '_id' key.
+##### Optional
+  - value: The value for '_id' key. Should be next to the '_id' key.
 
 ### isValidMongo
 
@@ -80,6 +83,6 @@ const rules = {
 
 model: Should be plural and in lowercase. Should be next to the rule.
 
-id or _id: The key that must be unique. Should be next to the model.
+id or _id: The key that must be a valid objectId. Should be next to the model.
 
 value: The value for '_id' key. Should be next to the '_id' key.
