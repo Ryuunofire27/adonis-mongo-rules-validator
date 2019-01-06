@@ -1,6 +1,6 @@
 {
   "name": "adonis-mongo-rules-validator",
-  "version": "3.0.1",
+  "version": "0.0.1",
   "description": "Extended validator rules for mongo",
   "main": "index.js",
   "author": "Charlie",
