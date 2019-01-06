@@ -8,7 +8,7 @@ You can install the package from npm.
 adonis install adonis-mongo-rules-validator
 ```
 
-Make sure to read [https://github.com/Ryuunofire27/adonis-mongo-rules-validator/blob/master/instructions.md](instructions.md) file.
+Make sure to read [instructions.md](https://github.com/Ryuunofire27/adonis-mongo-rules-validator/blob/master/instructions.md) file.
 
 ## Required Packages
 
