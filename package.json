@@ -1,6 +1,6 @@
 {
   "name": "adonis-mongo-rules-validator",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Extended validator rules for mongo",
   "main": "index.js",
   "author": "Charlie",
@@ -17,7 +17,8 @@
     "@adonisjs/fold": "^4.0.5"
   },
   "scripts": {
-    "lint": "standard",
+    "eslint": "eslint ./src/Rules/*.js --fix",
+    "lint": "standard --fix",
     "pretest": "npm run lint",
     "posttest": "npm run coverage",
     "test:local": "FORCE_COLOR=true node bin/index.js --local",
@@ -32,7 +33,11 @@
     "nyc": "^11.4.1",
     "semver": "^5.5.0",
     "standard": "^11.0.0",
-    "@adonisjs/fold": "^4.0.5"
+    "@adonisjs/fold": "^4.0.5",
+    "eslint": "^5.9.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-security": "^1.4.0"
   },
   "standard": {
     "global": [
