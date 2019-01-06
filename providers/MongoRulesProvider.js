@@ -18,7 +18,9 @@ class MongoRulesProvider extends ServiceProvider {
     const Validator = use('Validator');
     if(!Validator) throw new Error('Error, Not found Validator, Install @adonisjs/validator');
     const mongoRules = new MongoRules(Env);
-    mongoRules.setUniqueRule(Validator, this);
+    mongoRules.setUniqueRule(Validator);
+    mongoRules.setExistRule(Validator);
+    mongoRules.setIsValidRule(Validator);
   }
 }
 
