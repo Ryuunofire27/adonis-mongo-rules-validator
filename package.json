@@ -1,6 +1,6 @@
 {
   "name": "adonis-mongo-rules-validator",
-  "version": "0.0.4",
+  "version": "0.1.0",
   "description": "Extended validator rules for mongo",
   "main": "index.js",
   "author": "Charlie",
@@ -10,7 +10,11 @@
     "adonisjs",
     "mongodb",
     "validator",
-    "rules"
+    "rules",
+    "mongo",
+    "provider",
+    "lucid-mongo",
+    "adonis-mongoose-model"
   ],
   "license": "MIT",
   "peerDependencies": {

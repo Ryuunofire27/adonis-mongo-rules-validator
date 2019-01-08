@@ -1,19 +1,31 @@
 class MongoRules {
   constructor(Env) {
-    this.Env = Env;
     this.db = null;
     this.objectId = null;
-    const mongoFramework = Env.get('MONGO_RULES', 'mongoose').toLowerCase();
-    if (mongoFramework === 'mongoose') {
-      const Mongoose = use('Mongoose');
+    const mongoProvider = Env.get('ADONIS_MONGO_PROVIDER', '');
+    if (mongoProvider === '') throw new Error('Error, Set ADONIS_MONGO_PROVIDER in the .env file, read the documentation.');
+    if (mongoProvider === 'adonis-mongoose-model') {
+      let Mongoose;
+      try {
+        Mongoose = use('Mongoose');
+      } catch (err) {
+        throw new Error('Error, Not found mongoose. Please install adonis-mongoose-model for continue');
+      }
       this.objectId = Mongoose.Types.ObjectId;
-      if (!Mongoose) throw new Error('Error, Not found mongoose. Please install adonis-mongoose-model for continue');
       Mongoose.connection.on('error', (err) => {
         throw err;
       });
       Mongoose.connection.on('open', () => {
         this.db = Mongoose.connection.db;
       });
+    } else if (mongoProvider === 'lucid-mongo') {
+      const Database = use('Database');
+      const mongo = use('mongodb');
+      this.objectId = mongo.ObjectId;
+      Database.connect()
+        .then((mongo) => {
+          this.db = mongo;
+        });
     }
   }
 
