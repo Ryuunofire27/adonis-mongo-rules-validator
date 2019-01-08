@@ -7,7 +7,7 @@ class MongoRules {
     if (mongoProvider === 'adonis-mongoose-model') {
       let Mongoose;
       try {
-        Mongoose = use('Mongoose');
+        Mongoose = use('mongoose');
       } catch (err) {
         throw new Error('Error, Not found mongoose. Please install adonis-mongoose-model for continue');
       }
@@ -19,7 +19,17 @@ class MongoRules {
         this.db = Mongoose.connection.db;
       });
     } else if (mongoProvider === 'lucid-mongo') {
-      const Database = use('Database');
+      try {
+        require('lucid-mongo')
+      } catch (error) {
+        throw new Error('Error, Not found lucid-mongo. Please install lucid-mongo for continue');
+      } 
+      let Database;
+      try {
+        Database = use('Database');
+      } catch (err) {
+        throw new Error('Error, Not found Database. Please see lucid-mongo documentation for configure the database');
+      } 
       const mongo = use('mongodb');
       this.objectId = mongo.ObjectId;
       Database.connect()
