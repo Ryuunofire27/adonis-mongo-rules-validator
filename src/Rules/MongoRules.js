@@ -3,11 +3,11 @@ class MongoRules {
     this.db = null;
     this.objectId = null;
     const mongoProvider = Env.get('ADONIS_MONGO_PROVIDER', '');
-    if (mongoProvider === '') throw new Error('Error, Set ADONIS_MONGO_PROVIDER in the .env file, read the documentation.');
+    if (mongoProvider === '') throw new Error('Error, Set ADONIS_MONGO_PROVIDER in the .env file, read the documentation for more details.');
     if (mongoProvider === 'adonis-mongoose-model') {
       let Mongoose;
       try {
-        Mongoose = use('mongoose');
+        Mongoose = use('Mongoose');
       } catch (err) {
         throw new Error('Error, Not found mongoose. Please install adonis-mongoose-model for continue');
       }
@@ -30,11 +30,10 @@ class MongoRules {
       } catch (err) {
         throw new Error('Error, Not found Database. Please see lucid-mongo documentation for configure the database');
       } 
-      const mongo = use('mongodb');
-      this.objectId = mongo.ObjectId;
+      this.objectId = use('mongodb').ObjectId;
       Database.connect()
-        .then((mongo) => {
-          this.db = mongo;
+        .then((db) => {
+          this.db = db;
         });
     }
   }
